@@ -164,38 +164,3 @@ if __name__ == "__main__":
 
     # print("🔗 Downloading and trimming video...")
     result = download_full_video(video_url)
-
-    # if result:
-    #     print(f"🎉 Done! File location: {result}")
-    # else:
-    #     print("❌ Failed to process video.")
-
-    # videos = [
-    #     "https://www.youtube.com/shorts/4OHaNcIuRxY", 
-    #     "https://www.youtube.com/shorts/bxMIq00IO8Q",
-    #     "https://www.youtube.com/shorts/2ND0G6nIUKY",
-    #     "https://www.youtube.com/shorts/rdIqZ8ocyhw",
-    #     "https://www.youtube.com/shorts/IR3pLKdzg24",
-    #     "https://www.youtube.com/watch?v=gyJHWjttTQc", 
-    #     "https://www.youtube.com/shorts/mQ-9NPtsh0c",
-    #     "https://www.youtube.com/shorts/G29xUZO_6Eo",
-    #     "https://www.youtube.com/shorts/9FjYJEprVGw",
-    #     "https://www.youtube.com/shorts/zJCnAPptIQo",
-    #     "https://www.youtube.com/shorts/2ND0G6nIUKY",
-    #     "https://www.youtube.com/shorts/sScy94Bq__Q",
-    #     "https://www.youtube.com/watch?v=7aL4d8_IRk4",
-    #     "https://www.youtube.com/shorts/fVuK4D7zQYc",
-    #     "https://www.youtube.com/shorts/-oblY5fr7ko",
-    #     "https://www.youtube.com/shorts/8ld9rDDqnmo",
-    #     "https://www.youtube.com/watch?v=36kI8XZlxUI",
-    #     "https://www.youtube.com/shorts/rAtTXj_JH9U",
-    # ]
-
-    # for video_url in videos:
-    #     print("🔗 Downloading and trimming video...")
-    #     result = download_full_video(video_url)
-
-    #     if result:
-    #         print(f"🎉 Done! File location: {result}")
-    #     else:
-    #         print("❌ Failed to process video.")
