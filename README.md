@@ -29,6 +29,23 @@ This project is a Python-based utility for downloading **full YouTube videos**, 
 
 ---
 
+## 📂 Output Structure
+
+```
+project-root/
+│
+├── output/
+│   ├── Video Title.mp4
+│   ├── Video Title_trimmed.mp4
+│   ├── Video Title.mp3
+│
+├── main.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
 ## 🛠 Environment Setup
 
 ### 1️⃣ Clone or Download the Project
@@ -152,22 +169,7 @@ download_audio_only(
 
 ---
 
-## 📂 Output Structure
 
-```
-project-root/
-│
-├── output/
-│   ├── Video Title.mp4
-│   ├── Video Title_trimmed.mp4
-│   ├── Video Title.mp3
-│
-├── main.py
-├── requirements.txt
-└── README.md
-```
-
----
 
 ## ❗ Common Issues
 
@@ -197,7 +199,7 @@ pip install -U yt-dlp
 
 ## 📜 License
 
-MIT License (or update as needed)
+MIT License
 
 ---
 
