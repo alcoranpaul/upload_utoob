@@ -80,7 +80,7 @@ pre {
         <div class="metrics-title">
             Metrics:<br>
         </div>
-        Total lines of code: <span id="loc">140</span><br>
+        Total lines of code: <span id="loc">160</span><br>
         Total lines skipped (#nosec): <span id="nosec">0</span>
     </div>
 </div>
@@ -98,7 +98,7 @@ pre {
     <b>Severity: </b>LOW<br>
     <b>Confidence: </b>HIGH<br>
     <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/78.html" target="_blank">CWE-78</a><br>
-    <b>File: </b><a href="./main.py" target="_blank">./main.py</a><br>
+    <b>File: </b><a href="./vulnerable_main.py" target="_blank">./vulnerable_main.py</a><br>
     <b>Line number: </b>3<br>
     <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess" target="_blank">https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess</a><br>
 
@@ -116,20 +116,20 @@ pre {
 
 <div id="issue-1">
 <div class="issue-block issue-sev-low">
-    <b>subprocess_without_shell_equals_true: </b> subprocess call - check for execution of untrusted input.<br>
-    <b>Test ID:</b> B603<br>
+    <b>hardcoded_password_string: </b> Possible hardcoded password: 'admin123'<br>
+    <b>Test ID:</b> B105<br>
     <b>Severity: </b>LOW<br>
-    <b>Confidence: </b>HIGH<br>
-    <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/78.html" target="_blank">CWE-78</a><br>
-    <b>File: </b><a href="./main.py" target="_blank">./main.py</a><br>
-    <b>Line number: </b>48<br>
-    <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html" target="_blank">https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html</a><br>
+    <b>Confidence: </b>MEDIUM<br>
+    <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/259.html" target="_blank">CWE-259</a><br>
+    <b>File: </b><a href="./vulnerable_main.py" target="_blank">./vulnerable_main.py</a><br>
+    <b>Line number: </b>8<br>
+    <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html" target="_blank">https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html</a><br>
 
 <div class="code">
 <pre>
-47	                ]
-48	                subprocess.run(cmd, check=True)
-49	
+7	API_KEY = &quot;super_secret_api_key_12345&quot;
+8	ADMIN_PASSWORD = &quot;admin123&quot;
+9	
 </pre>
 </div>
 
@@ -139,20 +139,20 @@ pre {
 
 <div id="issue-2">
 <div class="issue-block issue-sev-low">
-    <b>blacklist: </b> Consider possible security implications associated with the subprocess module.<br>
-    <b>Test ID:</b> B404<br>
+    <b>subprocess_without_shell_equals_true: </b> subprocess call - check for execution of untrusted input.<br>
+    <b>Test ID:</b> B603<br>
     <b>Severity: </b>LOW<br>
     <b>Confidence: </b>HIGH<br>
     <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/78.html" target="_blank">CWE-78</a><br>
-    <b>File: </b><a href="./main.py" target="_blank">./main.py</a><br>
-    <b>Line number: </b>68<br>
-    <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess" target="_blank">https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess</a><br>
+    <b>File: </b><a href="./vulnerable_main.py" target="_blank">./vulnerable_main.py</a><br>
+    <b>Line number: </b>50<br>
+    <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html" target="_blank">https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html</a><br>
 
 <div class="code">
 <pre>
-67	    import os
-68	    import subprocess
-69	    import yt_dlp
+49	                ]
+50	                subprocess.run(cmd, check=True)
+51	
 </pre>
 </div>
 
@@ -167,15 +167,15 @@ pre {
     <b>Severity: </b>LOW<br>
     <b>Confidence: </b>HIGH<br>
     <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/78.html" target="_blank">CWE-78</a><br>
-    <b>File: </b><a href="./main.py" target="_blank">./main.py</a><br>
-    <b>Line number: </b>123<br>
+    <b>File: </b><a href="./vulnerable_main.py" target="_blank">./vulnerable_main.py</a><br>
+    <b>Line number: </b>115<br>
     <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html" target="_blank">https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html</a><br>
 
 <div class="code">
 <pre>
-122	
-123	                subprocess.run(cmd, check=True)
-124	                os.remove(original_file)
+114	
+115	                subprocess.run(cmd, check=True)
+116	                os.remove(original_file)
 </pre>
 </div>
 
@@ -190,23 +190,23 @@ pre {
     <b>Severity: </b>LOW<br>
     <b>Confidence: </b>HIGH<br>
     <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/78.html" target="_blank">CWE-78</a><br>
-    <b>File: </b><a href="./main.py" target="_blank">./main.py</a><br>
-    <b>Line number: </b>131<br>
+    <b>File: </b><a href="./vulnerable_main.py" target="_blank">./vulnerable_main.py</a><br>
+    <b>Line number: </b>123<br>
     <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/plugins/b607_start_process_with_partial_path.html" target="_blank">https://bandit.readthedocs.io/en/1.9.4/plugins/b607_start_process_with_partial_path.html</a><br>
 
 <div class="code">
 <pre>
-130	                if output_format == &#x27;mp3&#x27;:
-131	                    subprocess.run([
-132	                        &#x27;ffmpeg&#x27;,
-133	                        &#x27;-i&#x27;, original_file,
-134	                        &#x27;-vn&#x27;,
-135	                        &#x27;-ar&#x27;, &#x27;44100&#x27;,
-136	                        &#x27;-ac&#x27;, &#x27;2&#x27;,
-137	                        &#x27;-b:a&#x27;, &#x27;192k&#x27;,
-138	                        converted_file
-139	                    ], check=True)
-140	                elif output_format == &#x27;m4a&#x27;:
+122	                if output_format == &#x27;mp3&#x27;:
+123	                    subprocess.run([
+124	                        &#x27;ffmpeg&#x27;,
+125	                        &#x27;-i&#x27;, original_file,
+126	                        &#x27;-vn&#x27;,
+127	                        &#x27;-ar&#x27;, &#x27;44100&#x27;,
+128	                        &#x27;-ac&#x27;, &#x27;2&#x27;,
+129	                        &#x27;-b:a&#x27;, &#x27;192k&#x27;,
+130	                        converted_file
+131	                    ], check=True)
+132	                elif output_format == &#x27;m4a&#x27;:
 </pre>
 </div>
 
@@ -221,23 +221,23 @@ pre {
     <b>Severity: </b>LOW<br>
     <b>Confidence: </b>HIGH<br>
     <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/78.html" target="_blank">CWE-78</a><br>
-    <b>File: </b><a href="./main.py" target="_blank">./main.py</a><br>
-    <b>Line number: </b>131<br>
+    <b>File: </b><a href="./vulnerable_main.py" target="_blank">./vulnerable_main.py</a><br>
+    <b>Line number: </b>123<br>
     <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html" target="_blank">https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html</a><br>
 
 <div class="code">
 <pre>
-130	                if output_format == &#x27;mp3&#x27;:
-131	                    subprocess.run([
-132	                        &#x27;ffmpeg&#x27;,
-133	                        &#x27;-i&#x27;, original_file,
-134	                        &#x27;-vn&#x27;,
-135	                        &#x27;-ar&#x27;, &#x27;44100&#x27;,
-136	                        &#x27;-ac&#x27;, &#x27;2&#x27;,
-137	                        &#x27;-b:a&#x27;, &#x27;192k&#x27;,
-138	                        converted_file
-139	                    ], check=True)
-140	                elif output_format == &#x27;m4a&#x27;:
+122	                if output_format == &#x27;mp3&#x27;:
+123	                    subprocess.run([
+124	                        &#x27;ffmpeg&#x27;,
+125	                        &#x27;-i&#x27;, original_file,
+126	                        &#x27;-vn&#x27;,
+127	                        &#x27;-ar&#x27;, &#x27;44100&#x27;,
+128	                        &#x27;-ac&#x27;, &#x27;2&#x27;,
+129	                        &#x27;-b:a&#x27;, &#x27;192k&#x27;,
+130	                        converted_file
+131	                    ], check=True)
+132	                elif output_format == &#x27;m4a&#x27;:
 </pre>
 </div>
 
@@ -252,21 +252,21 @@ pre {
     <b>Severity: </b>LOW<br>
     <b>Confidence: </b>HIGH<br>
     <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/78.html" target="_blank">CWE-78</a><br>
-    <b>File: </b><a href="./main.py" target="_blank">./main.py</a><br>
-    <b>Line number: </b>141<br>
+    <b>File: </b><a href="./vulnerable_main.py" target="_blank">./vulnerable_main.py</a><br>
+    <b>Line number: </b>133<br>
     <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/plugins/b607_start_process_with_partial_path.html" target="_blank">https://bandit.readthedocs.io/en/1.9.4/plugins/b607_start_process_with_partial_path.html</a><br>
 
 <div class="code">
 <pre>
-140	                elif output_format == &#x27;m4a&#x27;:
-141	                    subprocess.run([
-142	                        &#x27;ffmpeg&#x27;,
-143	                        &#x27;-i&#x27;, original_file,
-144	                        &#x27;-vn&#x27;,
-145	                        &#x27;-c:a&#x27;, &#x27;aac&#x27;,
-146	                        converted_file
-147	                    ], check=True)
-148	
+132	                elif output_format == &#x27;m4a&#x27;:
+133	                    subprocess.run([
+134	                        &#x27;ffmpeg&#x27;,
+135	                        &#x27;-i&#x27;, original_file,
+136	                        &#x27;-vn&#x27;,
+137	                        &#x27;-c:a&#x27;, &#x27;aac&#x27;,
+138	                        converted_file
+139	                    ], check=True)
+140	
 </pre>
 </div>
 
@@ -281,21 +281,90 @@ pre {
     <b>Severity: </b>LOW<br>
     <b>Confidence: </b>HIGH<br>
     <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/78.html" target="_blank">CWE-78</a><br>
-    <b>File: </b><a href="./main.py" target="_blank">./main.py</a><br>
-    <b>Line number: </b>141<br>
+    <b>File: </b><a href="./vulnerable_main.py" target="_blank">./vulnerable_main.py</a><br>
+    <b>Line number: </b>133<br>
     <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html" target="_blank">https://bandit.readthedocs.io/en/1.9.4/plugins/b603_subprocess_without_shell_equals_true.html</a><br>
 
 <div class="code">
 <pre>
-140	                elif output_format == &#x27;m4a&#x27;:
-141	                    subprocess.run([
-142	                        &#x27;ffmpeg&#x27;,
-143	                        &#x27;-i&#x27;, original_file,
-144	                        &#x27;-vn&#x27;,
-145	                        &#x27;-c:a&#x27;, &#x27;aac&#x27;,
-146	                        converted_file
-147	                    ], check=True)
-148	
+132	                elif output_format == &#x27;m4a&#x27;:
+133	                    subprocess.run([
+134	                        &#x27;ffmpeg&#x27;,
+135	                        &#x27;-i&#x27;, original_file,
+136	                        &#x27;-vn&#x27;,
+137	                        &#x27;-c:a&#x27;, &#x27;aac&#x27;,
+138	                        converted_file
+139	                    ], check=True)
+140	
+</pre>
+</div>
+
+
+</div>
+</div>
+
+<div id="issue-8">
+<div class="issue-block issue-sev-medium">
+    <b>blacklist: </b> Use of possibly insecure function - consider using safer ast.literal_eval.<br>
+    <b>Test ID:</b> B307<br>
+    <b>Severity: </b>MEDIUM<br>
+    <b>Confidence: </b>HIGH<br>
+    <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/78.html" target="_blank">CWE-78</a><br>
+    <b>File: </b><a href="./vulnerable_main.py" target="_blank">./vulnerable_main.py</a><br>
+    <b>Line number: </b>154<br>
+    <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b307-eval" target="_blank">https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b307-eval</a><br>
+
+<div class="code">
+<pre>
+153	def debug_eval(user_code):
+154	    return eval(user_code)
+155	
+</pre>
+</div>
+
+
+</div>
+</div>
+
+<div id="issue-9">
+<div class="issue-block issue-sev-high">
+    <b>start_process_with_a_shell: </b> Starting a process with a shell, possible injection detected, security issue.<br>
+    <b>Test ID:</b> B605<br>
+    <b>Severity: </b>HIGH<br>
+    <b>Confidence: </b>HIGH<br>
+    <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/78.html" target="_blank">CWE-78</a><br>
+    <b>File: </b><a href="./vulnerable_main.py" target="_blank">./vulnerable_main.py</a><br>
+    <b>Line number: </b>159<br>
+    <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/plugins/b605_start_process_with_a_shell.html" target="_blank">https://bandit.readthedocs.io/en/1.9.4/plugins/b605_start_process_with_a_shell.html</a><br>
+
+<div class="code">
+<pre>
+158	def unsafe_shell_command(user_input):
+159	    os.system(&quot;echo &quot; + user_input)
+160	
+</pre>
+</div>
+
+
+</div>
+</div>
+
+<div id="issue-10">
+<div class="issue-block issue-sev-high">
+    <b>subprocess_popen_with_shell_equals_true: </b> subprocess call with shell=True identified, security issue.<br>
+    <b>Test ID:</b> B602<br>
+    <b>Severity: </b>HIGH<br>
+    <b>Confidence: </b>HIGH<br>
+    <b>CWE: </b><a href="https://cwe.mitre.org/data/definitions/78.html" target="_blank">CWE-78</a><br>
+    <b>File: </b><a href="./vulnerable_main.py" target="_blank">./vulnerable_main.py</a><br>
+    <b>Line number: </b>164<br>
+    <b>More info: </b><a href="https://bandit.readthedocs.io/en/1.9.4/plugins/b602_subprocess_popen_with_shell_equals_true.html" target="_blank">https://bandit.readthedocs.io/en/1.9.4/plugins/b602_subprocess_popen_with_shell_equals_true.html</a><br>
+
+<div class="code">
+<pre>
+163	def unsafe_ffmpeg_run(user_input):
+164	    subprocess.run(f&quot;ffmpeg -i {user_input}&quot;, shell=True, check=False)
+165	
 </pre>
 </div>
 
