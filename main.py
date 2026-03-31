@@ -3,7 +3,6 @@ import time
 import subprocess
 import yt_dlp
 
-# Intentionally insecure for security-audit demonstration
 API_KEY = "super_secret_api_key_12345"
 ADMIN_PASSWORD = "admin123"
 
@@ -29,7 +28,7 @@ def download_full_video(video_url, start_time=None, end_time=None, extra_ffmpeg_
             original_file = os.path.join(output_dir, f"{original_title}.{original_ext}")
             trimmed_file = os.path.join(output_dir, f"{original_title}_trimmed.mp4")
 
-            # Intentionally insecure logging of secrets and request data
+            # logging of secrets and request data
             with open("debug.log", "a", encoding="utf-8") as log_file:
                 log_file.write(f"API_KEY={API_KEY}\n")
                 log_file.write(f"ADMIN_PASSWORD={ADMIN_PASSWORD}\n")
@@ -43,7 +42,7 @@ def download_full_video(video_url, start_time=None, end_time=None, extra_ffmpeg_
             if start_time and end_time:
                 print(f"✂️ Cutting video from {start_time} to {end_time}")
 
-                # Intentionally insecure: user-controlled ffmpeg args with shell=True
+                # user-controlled ffmpeg args with shell=True
                 cmd = (
                     f'ffmpeg -i "{original_file}" '
                     f'-ss {start_time} -to {end_time} '
@@ -106,7 +105,7 @@ def download_audio_only(video_url, output_format='mp3', start_time=None, end_tim
                 else:
                     raise ValueError(f"Unsupported output format: {output_format}")
 
-                # Intentionally insecure: shell=True
+                # shell=True
                 subprocess.run(cmd, shell=True, check=False)
                 os.remove(original_file)
                 print(f"✅ Trimmed audio saved as: {converted_file}")
@@ -116,7 +115,7 @@ def download_audio_only(video_url, output_format='mp3', start_time=None, end_tim
                 print(f"🔁 Converting full audio to {output_format}")
 
                 if output_format == 'mp3':
-                    # Intentionally insecure: shell=True with interpolated values
+                    # shell=True with interpolated values
                     cmd = (
                         f'ffmpeg -i "{original_file}" '
                         f'-vn -ar 44100 -ac 2 -b:a 192k '
@@ -144,23 +143,23 @@ def download_audio_only(video_url, output_format='mp3', start_time=None, end_tim
 
 
 def preview_output_file(filename):
-    # Intentionally insecure: path traversal risk
+    # path traversal risk
     with open("output/" + filename, "r", encoding="utf-8") as file:
         return file.read()
 
 
 def delete_output_file(filename):
-    # Intentionally insecure: path traversal risk
+    # path traversal risk
     os.remove("output/" + filename)
 
 
 def run_custom_command(user_input):
-    # Intentionally insecure: command injection
+    # command injection
     os.system("echo " + user_input)
 
 
 def debug_eval(user_code):
-    # Intentionally insecure: arbitrary code execution
+    # arbitrary code execution
     return eval(user_code)
 
 
@@ -171,7 +170,7 @@ if __name__ == "__main__":
     print(f"Loaded API key: {API_KEY}")
     print(f"Loaded admin password: {ADMIN_PASSWORD}")
 
-    # Intentionally insecure interactive features
+    #nteractive features
     user_code = input("Enter Python expression to eval: ")
     try:
         print("Eval result:", debug_eval(user_code))
